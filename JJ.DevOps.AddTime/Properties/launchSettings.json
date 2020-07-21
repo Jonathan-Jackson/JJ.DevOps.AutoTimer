@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JJ.DevOps.AddTime": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
