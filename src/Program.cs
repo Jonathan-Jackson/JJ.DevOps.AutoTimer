@@ -126,11 +126,11 @@ namespace JJ.DevOps.AddTime {
         private static TimeManagementOptions GetTimeManagementOptions() {
             var options = _config.GetSection("TimeManagementOptions").Get<TimeManagementOptions>();
 
-            if (FindEnviromentSetting("TIMEMANAGEMENTOPTIONS_TARGETHOURS") != null && float.TryParse(FindEnviromentSetting("TIMEMANAGEMENTOPTIONS_TARGETHOURS"), out float updatesPerHour))
+            if (FindEnviromentSetting("TIMEMANAGEMENTOPTIONS_UPDATESPERHOUR") != null && float.TryParse(FindEnviromentSetting("TIMEMANAGEMENTOPTIONS_TARGETHOURS"), out float updatesPerHour))
                 options.UpdatesPerHour = updatesPerHour;
 
             if (options.UpdatesPerHour <= 0 && !options.ForcedUpdateHours.Any())
-                throw new ApplicationException("UPDATESPERHOUR must be greater than zero, or a value must be present for FORCEDUPDATEHOURS");
+                throw new ApplicationException("TIMEMANAGEMENTOPTIONS_UPDATESPERHOUR must be greater than zero, or a value must be present for FORCEDUPDATEHOURS");
 
             return options;
         }

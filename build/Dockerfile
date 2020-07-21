@@ -5,10 +5,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["JJ.DevOps.AddTime/JJ.DevOps.AddTime.csproj", "JJ.DevOps.AddTime/"]
-RUN dotnet restore "JJ.DevOps.AddTime/JJ.DevOps.AddTime.csproj"
+COPY ["src/JJ.DevOps.AddTime.csproj", "src/"]
+RUN dotnet restore "src/JJ.DevOps.AddTime.csproj"
 COPY . .
-WORKDIR "/src/JJ.DevOps.AddTime"
+WORKDIR "/src/src"
 RUN dotnet build "JJ.DevOps.AddTime.csproj" -c Release -o /app/build
 
 FROM build AS publish
